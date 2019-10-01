@@ -1,3 +1,7 @@
 *.filters
 Debug/*
 *.vc*
+*.o
+*.so
+*.dll
+*.exe
