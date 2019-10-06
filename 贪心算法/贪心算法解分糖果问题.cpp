@@ -36,20 +36,31 @@ using namespace std;
 
 class Solution {
 	public:
+		// 分发糖果问题, 贪心算法解决
 		int cookies(vector<int> &cookies, vector<int> &needs) {
-			sort(cookies.begin(),cookies.end()); // 孩子的需求和饼干都做一个排序 
+
+			// 对需求因子数组和糖果大小的数组做一个排序, 从小到大的排序
+			// 按照从小到大的顺序, 尝试使用糖果是否可以满足某个孩子, 每次只尝试一次,
+			// 如果尝试成功, 则换下一个孩子尝试,
+			// 知道没有发现更多的孩子或者更多的糖果, 循环结束
+
+			sort(cookies.begin(),cookies.end()); // 孩子的需求和饼干都做一个排序
 			sort(needs.begin(),needs.end());
+			//
 
 			int child_full = 0 , cookie_index = 0 ;
-			// 遍历条件 
+			// 遍历条件
 			for ( ; child_full< needs.size() && cookie_index < cookies.size(); ) {
-				// 如果当前孩子的需求得到满足,  
+				// 如果当前孩子的需求得到满足,
+				// 按照从小到大的顺序, 尝试使用糖果是否可以满足某个孩子, 每次只尝试一次,
+				// 如果尝试成功, 则换下一个孩子尝试,
 				if ( needs[child_full] <= cookies[cookie_index]) {
-					child_full ++; // 满足的孩子加一 
+					child_full ++; // 满足的孩子加一
 				}
-				cookie_index ++; // 每次遍历糖果都向后移动一位 
+				// 每个糖果只做一次尝试, 如果可以满足,
+				cookie_index ++; // 每次遍历糖果都向后移动一位
 			}
-			return child_full; // 返回满足孩子的需求数目 
+			return child_full; // 返回满足孩子的需求数目
 
 		}
 };
@@ -58,6 +69,6 @@ int main(void) {
 	cout<<" hello world "<<endl;
 	vector<int> child= {1,2,3,4,5,6,7};
 	vector<int> cookies = {3,2,5,9};
-	cout<<"child full "<< Solution().cookies(cookies,child)<<endl; 
+	cout<<"child full "<< Solution().cookies(cookies,child)<<endl;
 	return 0;
 }
