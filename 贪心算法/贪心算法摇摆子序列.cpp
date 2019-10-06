@@ -95,7 +95,7 @@ class Solution {
 int main(void) {
 	cout<<"hello world"<<endl;
 	vector<int>nums = {1, 17, 5, 10, 13, 15, 10, 5, 16, 8};
-	cout<<Solution().wiggleMaxLength(nums) <<endl; // 7 
+	cout<<Solution().wiggleMaxLength(nums) <<endl; // 7
 	return 0;
 }
 
