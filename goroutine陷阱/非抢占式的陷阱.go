@@ -14,7 +14,9 @@ func init() {
 	// 如果是 GOMAXPROCS == 1 时, 其他的协程将会陷入饥饿的状态
 	go func() {
 		for {
-
+			a := 1
+			b := a
+			a = b
 		}
 	}()
 }
